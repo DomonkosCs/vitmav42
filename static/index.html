@@ -12,8 +12,8 @@
     />
     <title>Games</title>
   </head>
-  <body class="m-5">
-    <div class="d-flex">
+  <body class="vh-100 pt-5 bg-light bg-gradient">
+    <div class="d-flex justify-content-center">
       <div class="d-flex flex-column">
         <div class="btn-group mb-1" role="group" aria-label="Basic example">
           <button class="btn btn-secondary">Game A</button>
@@ -72,9 +72,12 @@
             </div>
           </button>
         </div>
-        <button class="btn btn-outline-secondary d-block w-100">
+        <a
+          class="btn btn-outline-secondary d-block w-100"
+          href="/gameeditnew.html"
+        >
           + Add Game
-        </button>
+        </a>
       </div>
       <div class="card">
         <div class="card-header text-center">Game A</div>
@@ -82,7 +85,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Rules</th>
+                <th scope="col">Rule</th>
                 <th scope="col">Goal</th>
                 <th scope="col">Version</th>
               </tr>
@@ -106,7 +109,7 @@
             </div>
           </div>
           <div
-            class="list-group mb-5"
+            class="list-group mb-5 border"
             style="max-height: 150px; overflow: auto"
           >
             <a
@@ -130,10 +133,13 @@
           </div>
         </div>
         <div class="card-footer">
-          <a href="#" class="btn btn-primary float-end">Modify</a>
+          <a href="/gameeditnew.html" class="btn btn-primary float-end"
+            >Modify</a
+          >
         </div>
       </div>
     </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
