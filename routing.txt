@@ -1,0 +1,70 @@
+Játékok és felhasználóik
+
+- game.html - Az adott játék adatait tartalmazza egy táblázatban, 
+valamint a játékhoz tartozó felhasználókat egy listában.
+- gameeditnew.html - Játék hozzáadása/törlése/módosítása, valamint egy Cancel és egy Submit gomb.
+- usereditnew.html - Játékhoz tartozó felhasználók hozzáadása/törlése/módosítása, valamint egy Cancel és egy Submit gomb.
+
+Routing
+
+renderMW
+checkRedirectMW
+
+middleware/game/
+    getGameMW
+    getGamesMW
+    saveGameMW
+    delGameMW
+
+middleware/user/
+    getUsersMW
+    getUserMW
+    saveUserMW
+    delUserMW
+    resetAllUsersProgressMW
+
+GET /                        
+    getGamesMW
+    checkRedirectMW
+    renderMW(game.html)
+
+GET /game/:gameid
+    getGamesMW
+    getGameMW
+    getUsersMW
+    renderMW(game.html)
+
+GET,POST /game/new - ha az Add Game gombra kattintanak, vagy nincs még játék a DBben
+    getGameMW
+    saveGameMW
+    renderMW(gameeditnew.html (new))
+        - ha volt valami érték beküldve -> form elemek azzal töltődjenek fel
+        - ha nem, akkor nem
+
+GET,POST /game/edit/:gameid - ha az oldalsó sávban a játék nevére kattintanak    
+    getGameMW
+    resetAllUsersProgressMW
+    saveGameMW
+    renderMW(gameeditnew.html (new))
+            - ha volt valami érték beküldbe -> form elemek azzal töltődjenek fel
+            - ha nem, akkor nem
+
+GET /game/del/:gameid
+    getGameMW
+    delGameMW
+
+GET,POST /user/:gameid/new  - Ha az Add User gombra kattintanak
+    getGameMW
+    getUserMW
+    saveUserMW
+    renderMW(usereditnew.html)
+
+GET,POST /user/:gameid/edit/:userid  - Ha a felhasználó nevére kattintanak a listában
+    getGameMW
+    getUserMW
+    saveUserMW
+    renderMW(usereditnew.html)
+
+GET /user/:gameid/del/:userid
+    getUserMW
+    delUserMW
