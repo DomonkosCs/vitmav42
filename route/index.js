@@ -16,11 +16,10 @@ module.exports = function (app) {
     app.get('/', (req, res, next) => {
         getGamesMW(objRepo);
         checkRedirectMW(objRepo);
-        renderMW(objRepo);
-        return res.redirect('/game.html'); //temporary
+        return res.redirect('/game/new'); //temporary
     });
     app.get(
-        '/game/:gameid',
+        '/games/:gameid',
         getGamesMW(objRepo),
         getGameMW(objRepo),
         getUsersMW(objRepo),
