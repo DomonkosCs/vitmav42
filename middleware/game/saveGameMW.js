@@ -22,6 +22,11 @@ module.exports = function (objectrepository) {
             return next();
         }
 
+        const semVerRegex = new RegExp('^(0|[1-9]d*).(0|[1-9]d*).(0|[1-9]d*)'); // X.Y.Z format
+        if (!semVerRegex.test(req.body.version)) {
+            return next(); // sorry, you have to fill out the form again
+        }
+
         if (typeof res.locals.game === 'undefined') {
             res.locals.game = new GameModel();
         }
