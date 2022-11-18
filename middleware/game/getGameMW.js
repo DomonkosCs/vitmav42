@@ -5,6 +5,14 @@
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        next();
+        const GameModel = objectrepository.GameModel;
+        GameModel.findOne({ _id: req.params.gameid }, (err, game) => {
+            if (err || !game) {
+                return next(err);
+            }
+
+            res.locals.game = game;
+            return next();
+        });
     };
 };
