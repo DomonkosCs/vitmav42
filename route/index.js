@@ -1,6 +1,7 @@
 const delGameMW = require('../middleware/game/delGameMW');
 const getGameMW = require('../middleware/game/getGameMW');
 const getGamesMW = require('../middleware/game/getGamesMW');
+const sortGamesMW = require('../middleware/game/sortGamesMW');
 const resetAllUserProgressMW = require('../middleware/user/resetAllUserProgressMW');
 const saveGameMW = require('../middleware/game/saveGameMW');
 const delUserMW = require('../middleware/user/delUserMW');
@@ -10,14 +11,28 @@ const saveUserMW = require('../middleware/user/saveUserMW');
 const renderMW = require('../middleware/renderMW');
 const checkRedirectMW = require('../middleware/checkRedirectMW');
 
+const GameModel = require('../models/game');
+const UserModel = require('../models/user');
 module.exports = function (app) {
-    const objRepo = {};
+    const objRepo = {
+        GameModel,
+        UserModel,
+    };
 
-    app.get('/', (req, res, next) => {
-        getGamesMW(objRepo);
-        checkRedirectMW(objRepo);
-        return res.redirect('/game/new'); //temporary
-    });
+    // const game = new GameModel();
+    // game.name = 'Third Game';
+    // console.log(game);
+    // game.save((err) => {
+    //     console.log(err);
+    // });
+
+    app.get(
+        '/',
+        getGamesMW(objRepo),
+        sortGamesMW(objRepo),
+        checkRedirectMW(objRepo)
+        // renderMW(objRepo, 'game')
+    );
     app.get(
         '/games/:gameid',
         getGamesMW(objRepo),

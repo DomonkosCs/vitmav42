@@ -5,6 +5,16 @@
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        next();
+        const GameModel = objectrepository.GameModel;
+        GameModel.find({})
+            .sort({ createdAt: 'asc' })
+            .exec((err, games) => {
+                if (err) {
+                    return next(err);
+                }
+
+                res.locals.games = games;
+                return next();
+            });
     };
 };
