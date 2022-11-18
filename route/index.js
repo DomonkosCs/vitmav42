@@ -1,7 +1,6 @@
 const delGameMW = require('../middleware/game/delGameMW');
 const getGameMW = require('../middleware/game/getGameMW');
 const getGamesMW = require('../middleware/game/getGamesMW');
-const sortGamesMW = require('../middleware/game/sortGamesMW');
 const resetAllUserProgressMW = require('../middleware/user/resetAllUserProgressMW');
 const saveGameMW = require('../middleware/game/saveGameMW');
 const delUserMW = require('../middleware/user/delUserMW');
@@ -26,13 +25,7 @@ module.exports = function (app) {
     //     console.log(err);
     // });
 
-    app.get(
-        '/',
-        getGamesMW(objRepo),
-        sortGamesMW(objRepo),
-        checkRedirectMW(objRepo)
-        // renderMW(objRepo, 'game')
-    );
+    app.get('/', getGamesMW(objRepo), checkRedirectMW(objRepo));
     app.get(
         '/games/:gameid',
         getGamesMW(objRepo),

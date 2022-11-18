@@ -1,5 +1,6 @@
 /**
  * Load all games from the database
+ * and sorts them from oldest created to newest
  * The result is saved to res.locals.games
  */
 

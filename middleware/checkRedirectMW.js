@@ -1,6 +1,7 @@
 /**
  * Checks if res.locals.games is undefined or not
  * If undefined, redirects to /game/new
+ * Else redirects to the oldest created game
  */
 
 module.exports = function (objectrepository) {
