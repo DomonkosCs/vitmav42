@@ -25,7 +25,8 @@
                                 type="text"
                                 class="form-control"
                                 id="inputName"
-                                name="name" />
+                                name="name"
+                                value="<%= (typeof game === 'undefined') ? '' : game.name %>" />
                         </div>
                         <div class="mb-4">
                             <label for="inputVersion" class="form-label"
@@ -35,7 +36,8 @@
                                 type="text"
                                 class="form-control"
                                 id="inputVersion"
-                                name="version" />
+                                name="version"
+                                value="<%= (typeof game === 'undefined') ? '' : game.version %>" />
                         </div>
                         <div class="mb-4">
                             <label for="inputRule" class="form-label"
@@ -45,7 +47,8 @@
                                 type="text"
                                 class="form-control"
                                 id="inputRule"
-                                name="rule" />
+                                name="rule"
+                                value="<%= (typeof game === 'undefined') ? '' : game.rule %>" />
                         </div>
                         <div class="mb-4">
                             <label for="inputGoal" class="form-label"
@@ -55,12 +58,15 @@
                                 type="text"
                                 class="form-control"
                                 id="inputGoal"
-                                name="goal" />
+                                name="goal"
+                                value="<%= (typeof game === 'undefined') ? '' : game.goal %>" />
                         </div>
                     </div>
                     <div class="card-footer">
                         <div class="float-end">
-                            <a class="btn btn-outline-primary" href="/games/1"
+                            <a
+                                class="btn btn-outline-primary"
+                                href="<%= typeof game === 'undefined' ? '/' : `/games/${game.id}` %> "
                                 >Cancel</a
                             >
                             <input
