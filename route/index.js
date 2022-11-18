@@ -51,6 +51,7 @@ module.exports = function (app) {
     );
     app.get(
         '/user/:gameid/del/:userid',
+        getGameMW(objRepo),
         getUserMW(objRepo),
         delUserMW(objRepo)
     );
