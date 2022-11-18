@@ -19,7 +19,9 @@
                     class="btn-group mb-1"
                     role="group"
                     aria-label="Basic example">
-                    <button class="btn btn-secondary"><%= game.name %></button>
+                    <a class="btn btn-secondary" href="/games/<%= game.id %> "
+                        ><%= game.name %></a
+                    >
                     <button class="btn btn-secondary">
                         <div class="d-flex align-items-center">
                             <svg
@@ -42,7 +44,7 @@
                     + Add Game
                 </a>
             </div>
-            <div class="card">
+            <div class="card w-50" style="max-width: 400px">
                 <div class="card-header text-center"><%= game.name %></div>
                 <div class="card-body">
                     <table class="table">
