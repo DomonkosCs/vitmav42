@@ -18,13 +18,6 @@ module.exports = function (app) {
         UserModel,
     };
 
-    // const game = new GameModel();
-    // game.name = 'Third Game';
-    // console.log(game);
-    // game.save((err) => {
-    //     console.log(err);
-    // });
-
     app.get('/', getGamesMW(objRepo), checkRedirectMW(objRepo));
     app.get(
         '/games/:gameid',
@@ -33,12 +26,7 @@ module.exports = function (app) {
         getUsersMW(objRepo),
         renderMW(objRepo, 'game')
     );
-    app.use(
-        '/game/new',
-        getGameMW(objRepo),
-        saveGameMW(objRepo),
-        renderMW(objRepo, 'gameeditnew')
-    );
+    app.use('/game/new', saveGameMW(objRepo), renderMW(objRepo, 'gameeditnew'));
     app.use(
         '/game/edit/:gameid',
         getGameMW(objRepo),
