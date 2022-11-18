@@ -13,10 +13,10 @@
     </head>
     <body class="vh-100 pt-5 bg-light bg-gradient">
         <div class="containter">
-            <div class="card mx-auto shadow" style="max-width: 400px">
-                <div class="card-header">Manage Game</div>
-                <div class="card-body">
-                    <form>
+            <form method="POST">
+                <div class="card mx-auto shadow" style="max-width: 400px">
+                    <div class="card-header">Manage Game</div>
+                    <div class="card-body">
                         <div class="mb-4">
                             <label for="inputName" class="form-label"
                                 >Name</label
@@ -24,7 +24,8 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                id="inputName" />
+                                id="inputName"
+                                name="name" />
                         </div>
                         <div class="mb-4">
                             <label for="inputVersion" class="form-label"
@@ -33,7 +34,8 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                id="inputVersion" />
+                                id="inputVersion"
+                                name="version" />
                         </div>
                         <div class="mb-4">
                             <label for="inputRule" class="form-label"
@@ -42,7 +44,8 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                id="inputRule" />
+                                id="inputRule"
+                                name="rule" />
                         </div>
                         <div class="mb-4">
                             <label for="inputGoal" class="form-label"
@@ -51,19 +54,23 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                id="inputGoal" />
+                                id="inputGoal"
+                                name="goal" />
                         </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="float-end">
-                        <a class="btn btn-outline-primary" href="/games/1"
-                            >Cancel</a
-                        >
-                        <a class="btn btn-primary" href="/games/1">Submit</a>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-end">
+                            <a class="btn btn-outline-primary" href="/games/1"
+                                >Cancel</a
+                            >
+                            <input
+                                type="submit"
+                                class="btn btn-primary"
+                                value="Submit" />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </body>
 </html>
