@@ -30,6 +30,7 @@ module.exports = function (app) {
     app.use(
         '/game/edit/:gameid',
         getGameMW(objRepo),
+        getUsersMW(objRepo),
         resetAllUserProgressMW(objRepo),
         saveGameMW(objRepo),
         renderMW(objRepo, 'gameeditnew')
