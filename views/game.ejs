@@ -82,7 +82,8 @@
                     <div
                         class="list-group mb-5 border"
                         style="max-height: 150px; overflow: auto">
-                        <% if(typeof users === 'undefined') { %>
+                        <% if(typeof users === 'undefined' || !users.length) {
+                        %>
                         <div class="list-group-item">No users</div>
                         <% } else { users.forEach((user) => {%>
                         <a
