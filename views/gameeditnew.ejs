@@ -9,13 +9,18 @@
             rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous" />
-        <title>Add/Edit Game</title>
+        <title>
+            <%= (typeof game === 'undefined') ? 'Add' : 'Modify' %> Game
+        </title>
     </head>
     <body class="vh-100 pt-5 bg-light bg-gradient">
         <div class="containter">
             <form method="POST">
                 <div class="card mx-auto shadow" style="max-width: 400px">
-                    <div class="card-header">Manage Game</div>
+                    <div class="card-header">
+                        <%= (typeof game === 'undefined') ? 'Add' : 'Modify' %>
+                        Game
+                    </div>
                     <div class="card-body">
                         <div class="mb-4">
                             <label for="inputName" class="form-label"
