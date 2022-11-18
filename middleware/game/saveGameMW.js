@@ -26,7 +26,7 @@ module.exports = function (objectrepository) {
         if (!semVerRegex.test(req.body.version)) {
             return next(
                 new Error(
-                    'Error! The valid format of the version is NUMBER.NUMBER.NUMBER'
+                    'The valid format of the version is NUMBER.NUMBER.NUMBER'
                 )
             );
         }

@@ -28,7 +28,7 @@ module.exports = function (objectrepository) {
         ) {
             return next(
                 new Error(
-                    'Error! User progress is not a number, or not between 0 and 1.'
+                    'User progress is not a number, or not between 0 and 1.'
                 )
             );
         }
