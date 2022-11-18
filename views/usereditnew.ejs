@@ -9,7 +9,9 @@
             rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous" />
-        <title>Add/Edit User</title>
+        <title>
+            <%= (typeof user === 'undefined') ? 'Add' : 'Modify' %> User
+        </title>
     </head>
     <body class="vh-100 pt-5 bg-light bg-gradient">
         <div class="containter">
@@ -17,7 +19,10 @@
                 <div class="card mx-auto shadow" style="max-width: 400px">
                     <div
                         class="card-header d-flex align-items-center justify-content-between">
-                        <span>Manage User</span>
+                        <span>
+                            <%= (typeof user === 'undefined') ? 'Add' : 'Modify'
+                            %> User
+                        </span>
                         <% if(typeof user !== 'undefined') { %>
                         <a
                             href="/user/<%= game.id %>/del/<%= user.id %> "
