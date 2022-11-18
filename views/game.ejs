@@ -14,15 +14,17 @@
     <body class="vh-100 pt-5 bg-light bg-gradient">
         <div class="d-flex justify-content-center">
             <div class="d-flex flex-column">
-                <% games.forEach(game => { %>
+                <% games.forEach(forGame => { %>
                 <div
                     class="btn-group mb-1"
                     role="group"
                     aria-label="Basic example">
-                    <a class="btn btn-secondary" href="/games/<%= game.id %> "
-                        ><%= game.name %></a
+                    <a
+                        class="btn btn-<%= forGame.id === game.id ? '' : 'outline-' %>secondary"
+                        href="/games/<%= forGame.id %> "
+                        ><%= forGame.name %></a
                     >
-                    <button class="btn btn-secondary">
+                    <button class="btn btn-outline-secondary flex-grow-0">
                         <div class="d-flex align-items-center">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
