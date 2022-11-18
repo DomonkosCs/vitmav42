@@ -5,6 +5,16 @@
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        next();
+        if (typeof res.locals.game === 'undefined') {
+            return next();
+        }
+
+        res.locals.game.remove((err) => {
+            if (err) {
+                return next(err);
+            }
+
+            return res.redirect('/');
+        });
     };
 };
