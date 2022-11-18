@@ -43,7 +43,7 @@ module.exports = function (app) {
         renderMW(objRepo, 'usereditnew')
     );
     app.use(
-        '/user/:game/edit/:userid',
+        '/user/:gameid/edit/:userid',
         getGameMW(objRepo),
         getUserMW(objRepo),
         saveUserMW(objRepo),

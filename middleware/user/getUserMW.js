@@ -5,6 +5,14 @@
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        next();
+        const UserModel = objectrepository.UserModel;
+        UserModel.findOne({ _id: req.params.userid }, (err, user) => {
+            if (err || !user) {
+                return next(err);
+            }
+
+            res.locals.user = user;
+            return next();
+        });
     };
 };

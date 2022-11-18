@@ -74,7 +74,7 @@
                         <div class="col">
                             <a
                                 class="btn btn-outline-primary btn-sm float-end"
-                                href="/user/1/new">
+                                href="/user/<%= game.id %>/new">
                                 + Add user
                             </a>
                         </div>
@@ -82,32 +82,16 @@
                     <div
                         class="list-group mb-5 border"
                         style="max-height: 150px; overflow: auto">
+                        <% if(typeof users === 'undefined') { %>
+                        <div class="list-group-item">No users</div>
+                        <% } else { users.forEach((user) => {%>
                         <a
-                            href="/user/1/edit/1"
+                            href="/user/<%= game.id %>/edit/<%= user.id %> "
                             class="list-group-item list-group-item-action"
                             aria-current="true"
-                            >User 1</a
-                        >
-                        <a
-                            href="/user/1/edit/2"
-                            class="list-group-item list-group-item-action"
-                            >User 2</a
-                        >
-                        <a
-                            href="/user/1/edit/3"
-                            class="list-group-item list-group-item-action"
-                            >User 3</a
-                        >
-                        <a
-                            href="/user/1/edit/4"
-                            class="list-group-item list-group-itim-action"
-                            >User 4</a
-                        >
-                        <a
-                            href="/user/1/edit/5"
-                            class="list-group-item list-group-item-action"
-                            >User 5</a
-                        >
+                            ><%= user.username %>
+                        </a>
+                        <% })}; %>
                     </div>
                 </div>
                 <div class="card-footer">
